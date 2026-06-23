@@ -1,11 +1,1 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-plugins {
-    id("com.android.application") version "8.1.0" apply false
-    id("com.android.library") version "8.1.0" apply false
-    kotlin("android") version "1.9.0" apply false
-    kotlin("kapt") version "1.9.0" apply false
-}
-
-tasks.register("clean", Delete::class) {
-    delete(rootProject.buildDir)
-}
+plugins {\n    id(\"com.android.application\") version \"8.2.0\" apply false\n    id(\"com.android.library\") version \"8.2.0\" apply false\n    kotlin(\"android\") version \"1.9.20\" apply false\n    kotlin(\"kapt\") version \"1.9.20\" apply false\n    id(\"io.gitlab.arturbosch.detekt\") version \"1.23.3\"\n}\n\ndetekt {\n    toolVersion = \"1.23.3\"\n    config = files(\"$rootDir/detekt.yml\")\n    buildUponDefaultConfig = true\n}\n\ntasks.register(\"clean\", Delete::class) {\n    delete(rootProject.buildDir)\n}\n
